@@ -20,7 +20,10 @@ public class linkedList {
         
             obj.add(5,"G");
             
-            System.out.println("Linked List : " +obj);
+        System.out.println("Linked List : " +obj);
+            
+            
+            
 	}
 
 }
