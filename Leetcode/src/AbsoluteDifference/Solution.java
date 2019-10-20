@@ -36,6 +36,7 @@ public class Solution {
 		int[] arr = {23,32,12,45,13,43,78};
 		
 		obj.minimumAbsDifference(arr);
+		for(int i = 0; i< arr.length;i++)
 		System.out.println(obj.minimumAbsDifference(arr));
 		
 	}
