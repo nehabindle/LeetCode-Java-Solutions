@@ -65,11 +65,27 @@ public class ArrayProd {
 		    }
 	
 	
+	public int[] productExceptSelf_O1(int[] nums) {	
 	
 	
-	
-	
-	
+	int length = nums.length;
+	  int[] prod_array = new int[length];
+	   prod_array[0] = 1;
+	        for(int i=1;i<length;i++)
+	        {
+	            prod_array[i] = prod_array[i-1]*nums[i-1];
+	        }
+	        
+	       int right = 1;
+	        
+	        for(int i= length-1; i>=0; i--)
+	        {
+	            prod_array[i] = right*prod_array[i];
+	            right*=nums[i];
+	        }
+	        
+	        return prod_array;
+	}
 	
 	public static void main(String[] args) {
 		
@@ -79,6 +95,13 @@ public class ArrayProd {
 		res = obj.productExceptSelf(arr);
 		for(int i=0;i<arr.length;i++)
 		System.out.print(res[i]+" ");
+		System.out.println(" ");
+		int[] res2 = new int[arr.length];
+		res2 = obj.productExceptSelf_O1(arr);
+		for(int i=0;i<arr.length;i++)
+			System.out.print(res2[i]+" ");
+		
+		
 
 	}
 
