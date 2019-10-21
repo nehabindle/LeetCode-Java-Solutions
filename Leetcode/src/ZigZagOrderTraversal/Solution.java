@@ -10,7 +10,7 @@ import ZigZagOrderTraversal.Solution.TreeNode;
 
 //Definition for a binary tree node.
 
-class Solution {
+public class Solution {
 
 	public static class TreeNode {
 		int val;
