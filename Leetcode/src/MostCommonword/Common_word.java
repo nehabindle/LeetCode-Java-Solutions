@@ -8,7 +8,7 @@ public class Common_word {
 	
 	public static String mostCommonWord(String paragraph, String[] banned) {
 		HashMap<String, Integer> map = new HashMap<>();
-		String[] words = paragraph.split("[\\s,.?;:'!+']");
+		String[] words = paragraph.split("[\\s@,.?;:'!+']");
 		
 		List<String> banned_words = Arrays.asList(banned);
 		
