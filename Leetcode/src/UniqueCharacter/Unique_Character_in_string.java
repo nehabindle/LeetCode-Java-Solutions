@@ -1,5 +1,7 @@
 package UniqueCharacter;
 
+import java.util.HashMap;
+
 public class Unique_Character_in_string {
 public int firstUniqChar(String s) {
     int no_of_chars = 256;
@@ -20,6 +22,24 @@ public int firstUniqChar(String s) {
             break;
         }
     }
+    
+    
+    HashMap<Character, Integer> abc = new HashMap<>();
+    for(int k=0 ; k< s.length() ; k++) {
+    	int count1 =0;
+    	
+    	if(abc.containsKey(s.charAt(k))){
+    		count1 = 1 + abc.get(s.charAt(k));
+    		abc.put(s.charAt(k), count1);
+    	}else {
+    		abc.put(s.charAt(k),1);
+    	}
+    	
+    }
+    
+    System.out.println(abc);
+    
+    
     return index;
 }
 
