@@ -1,97 +1,83 @@
-package First_Last_Occurence;
+/**
+ * 
+ */
+package LC1006_BT_Inorder_Postorder;
 
-class Solution {
-    private static int binarySearchRight(int nums[],int target)
- {
-     int low = 0;
-     int high = nums.length-1;
-     while(low<=high)
-     {
-         int mid = low + (high-low)/2;
-         
-         if(nums[mid]==target)
-         {
-            if(mid == nums.length-1 || nums[mid] < nums [mid + 1])   
-            {
-                return mid;
-            }
-               
-             else
-             {
-                 low = mid+1;
-             }
-         }
-         
-         else if(nums[mid] > target)
-         {
-             high = mid-1;
-         }
-         
-         else
-         {
-             low = mid+1;
-         }
-     }
-     
-     return -1;
- }
- 
- private static int binarySearchLeft(int nums[], int target)
- {
-     int low = 0;
-     int high = nums.length-1;
-     while(low<=high)
-     {
-         int mid = low + (high-low)/2;
-         
-         if(nums[mid]==target)
-         {
-            if(mid == 0 || nums[mid] > nums [mid - 1])   
-            {
-                return mid;
-            }
-             
-             else
-             {
-                 high = mid-1;
-             }
-         }
-         
-         else if(nums[mid] > target)
-         {
-             high = mid-1;
-         }
-         
-         else
-         {
-             low = mid+1;
-         }
-     }
-     
-     return -1;
- }
- 
- 
-static public int[] searchRange(int[] nums, int target) {
-     if (nums == null || nums.length ==0 )
-     {
-         return new int[]{-1,-1}; 
-     }
-     
-     int left = binarySearchLeft(nums,target);
-     int right = binarySearchRight(nums, target);
-     return new int[] {left, right};
-     
-     
- }
+import java.util.Arrays;
 
+
+
+
+/**
+ * @author neha
+ *
+ */
+public class Solution {
+
+	
+public static class TreeNode {
+	     int val;
+	     TreeNode left;
+	    TreeNode right;
+	     TreeNode(int x) 
+	     { 
+	    	 val = x; 
+	    	 }
+	     
+	 }
+	static TreeNode root; 
+	
+
+	public TreeNode buildTree(int[] inorder, int[] postorder) {
+        if(inorder == null || postorder == null || inorder.length == 0 || postorder.length == 0 )
+        {
+            return null;
+        }
+        
+        TreeNode root = new TreeNode(postorder[postorder.length -1]);
+        int index = -1;
+        //Finding the root from the inorder array
+        for(int i=0; i<inorder.length;i++)
+        {
+            if(inorder[i] == root.val)
+            {
+                index = i;
+                break;
+            }
+        }
+        
+        int[] inLeft = Arrays.copyOfRange(inorder,0,index);
+        int[] inRight = Arrays.copyOfRange(inorder,index+1,inorder.length);
+        int[] postLeft = Arrays.copyOfRange(postorder,0,index);
+        int[] postRight = Arrays.copyOfRange(postorder,index,postorder.length-1);
+        root.left = buildTree(inLeft, postLeft);
+        root.right = buildTree(inRight, postRight);
+        return root;
+    }
+	
+	void printInorder(TreeNode node) 
+	{ 
+	    if (node == null) 
+	        return; 
+
+	    /* first recur on left child */
+	    printInorder(node.left); 
+
+	    /* then print the data of node */
+	    System.out.print(node.val + " "); 
+
+	    /* now recur on right child */
+	    printInorder(node.right);
+	}
 	public static void main(String[] args) {
-		
-		int[] nums = {2,3,4,4,5,5,5,6,7,8};
-		int[] obj = searchRange(nums,5);
-		System.out.println("The index of first and last occurences are : " + obj);
-		
 		// TODO Auto-generated method stub
+		Solution Tree = new Solution();
+		int[] postorder = {9,15,7,20,3};
+		int[] inorder = {9,3,15,20,7};
+		TreeNode Binary_tree = Tree.buildTree(inorder,postorder);
+		System.out.println("The Inorder Tree Traversal is");
+		Tree.printInorder(Binary_tree);
+
 
 	}
 
