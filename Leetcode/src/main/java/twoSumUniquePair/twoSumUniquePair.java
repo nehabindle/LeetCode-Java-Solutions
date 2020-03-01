@@ -1,7 +1,5 @@
-package main.java.twoSumUniquePair;
+package twoSumUniquePair;
 import java.util.*;
-
-import Two_Sum.Two_Sum;
 
 public class twoSumUniquePair {
 	int complement;
