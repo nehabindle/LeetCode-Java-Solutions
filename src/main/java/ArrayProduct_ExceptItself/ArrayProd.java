@@ -88,7 +88,6 @@ public class ArrayProd {
 	}
 	
 	public static void main(String[] args) {
-		
 		int[] arr = {10, 3, 5, 6, 2 };
 		ArrayProd obj = new ArrayProd();
 		int[] res = new int[arr.length];
