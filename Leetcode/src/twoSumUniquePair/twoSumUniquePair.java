@@ -47,8 +47,8 @@ public class twoSumUniquePair {
 	public static void main(String[] args) {
 		
 		
-			int[] arr = {1,1,2,45,46,46};
-			int target = 47;
+			int[] arr = {4,5,6,7,0,1,2};
+			int target = 0;
 			
 			twoSumUniquePair obj = new twoSumUniquePair();
 			 

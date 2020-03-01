@@ -42,7 +42,7 @@ class Solution {
     
          int[] nums = {4,5,6,7,0,1,2};
          
-        int obj =  search(nums,6);
+        int obj =  search(nums,0);
         System.out.println(obj);
     }
     
